@@ -114,5 +114,33 @@ class DetailedListStrategy {
   }
 }
 
+class ListWithImageStrategy {
+  show(data, element) {
+    element.innerHTML = data.reduce((ac, e) => {
+      return (
+        ac +
+        `<div >
+                        <h2>${e.name.toUpperCase()}</h2> 
+                        <img width="10%" src="${e.imagen}">
+                        <p>${e.country}<p>
+                        <p>${e.info}</p>
+                    </div>
+                <hr>`
+      );
+    }, "");
+  }
+}
+
+const strategies = [
+  new ListStrategy(),
+  new DetailedListStrategy(),
+  new ListWithImageStrategy(),
+];
+
 const info = new InfoContext(new ListStrategy(), data, content);
 info.show();
+slcOptions.addEventListener("change", (event) => {
+  const op = event.target.value;
+  info.setStrategy(strategies[op]);
+  info.show();
+});

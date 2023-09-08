@@ -66,5 +66,10 @@ const data = [
   },
 ];
 class InfoContext {
-  constructor(strategy, data, element) {}
+  constructor(strategy, data, element) {
+    this.setStrategy(strategy);
+  }
+  setStrategy() {
+    this.strategy = this.strategy;
+  }
 }

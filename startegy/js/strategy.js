@@ -68,8 +68,13 @@ const data = [
 class InfoContext {
   constructor(strategy, data, element) {
     this.setStrategy(strategy);
+    this.data = data;
+    this.element = element;
   }
   setStrategy() {
     this.strategy = this.strategy;
+  }
+  show() {
+    this.strategy.show();
   }
 }

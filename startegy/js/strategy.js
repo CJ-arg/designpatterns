@@ -75,6 +75,17 @@ class InfoContext {
     this.strategy = this.strategy;
   }
   show() {
-    this.strategy.show();
+    this.strategy.show(this.data, this.element);
+  }
+}
+
+class ListStrategy {
+  show(data, element) {
+    element.innerHtml = data.reduce((ac, item) => {
+      return (
+        ac +
+        `<div id="content">   <h2>${item.name} </h2> <p>${item.country} </p></div <hr/>`
+      );
+    }, "");
   }
 }

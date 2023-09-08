@@ -46,3 +46,25 @@ sale.setStrategy(discountSale);
 console.log(sale.calculate(10));
 sale.setStrategy(foreingSale);
 console.log(sale.calculate(10));
+
+const data = [
+  {
+    name: "CORONA",
+    country: "Mexico",
+    info: "https://californiaranchmarket.com/cdn/shop/products/001740.jpg?v=1614673997",
+  },
+
+  {
+    name: "MICHELOB",
+    country: "Mexico",
+    info: "https://californiaranchmarket.com/cdn/shop/products/006034_31bdc8af-3807-427f-8dab-a8f5a99d4159.jpg?v=1621448776",
+  },
+  {
+    name: "INSURGENTE",
+    country: "Mexico",
+    info: "https://californiaranchmarket.com/cdn/shop/products/101875.jpg?v=1621448839",
+  },
+];
+class InfoContext {
+  constructor(strategy, data, element) {}
+}

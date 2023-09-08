@@ -89,3 +89,4 @@ class ListStrategy {
     }, "");
   }
 }
+const info = new InfoContext(new ListStrategy(), data, content);

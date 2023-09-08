@@ -18,18 +18,15 @@ class LoginContext {
   }
 }
 
-// class LoginDBStrategy implements Strategy{
-//     login(user: string, password: string) : boolean{
-//         console.log("nos dirigimos a la base de datos");
-
-//         if(user === "admin" && password === "entra"){
-//             return true;
-//         }
-
-//         return false;
-//     }
-// }
-
+class LoginDBStrategy implements Strategy {
+  login(user: string, password: string): boolean {
+    console.log("nos dirigimos a la base de datos");
+    if (user === "admin" && password === "entra") {
+      return true;
+    }
+    return false;
+  }
+}
 class LoginServiceStrategy implements Strategy {
   login(user: string, password: string): boolean {
     console.log("nos dirigimos a un servicio de autentificación");
@@ -41,7 +38,6 @@ class LoginServiceStrategy implements Strategy {
     return false;
   }
 }
-
 class LoginGoogleStrategy implements Strategy {
   login(user: string, password: string): boolean {
     console.log("nos dirigimos a un GOOGLE de autentificación");
@@ -53,7 +49,6 @@ class LoginGoogleStrategy implements Strategy {
     return false;
   }
 }
-
 // Ejecución
 const auth = new LoginContext(new LoginDBStrategy());
 auth.login("admin", "entra");

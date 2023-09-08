@@ -51,18 +51,24 @@ const data = [
   {
     name: "CORONA",
     country: "Mexico",
-    info: "https://californiaranchmarket.com/cdn/shop/products/001740.jpg?v=1614673997",
+    imagen:
+      "https://californiaranchmarket.com/cdn/shop/products/001740.jpg?v=1614673997",
+    info: "Esta pale ale,  Al tomarse, refresca el paladar.",
   },
 
   {
     name: "MICHELOB",
-    country: "Mexico",
-    info: "https://californiaranchmarket.com/cdn/shop/products/006034_31bdc8af-3807-427f-8dab-a8f5a99d4159.jpg?v=1621448776",
+    country: "Estados Unidos",
+    imagen:
+      "https://californiaranchmarket.com/cdn/shop/products/006034_31bdc8af-3807-427f-8dab-a8f5a99d4159.jpg?v=1621448776",
+    info: "Esta pale ale con un toque un tanto picante. Al tomarse deja un sabor de amargor seco.",
   },
   {
     name: "INSURGENTE",
     country: "Mexico",
-    info: "https://californiaranchmarket.com/cdn/shop/products/101875.jpg?v=1621448839",
+    imagen:
+      "https://californiaranchmarket.com/cdn/shop/products/101875.jpg?v=1621448839",
+    info: "Esta pale ale tiene una efervescencia fina. Al tomarse, calienta el paladar.",
   },
 ];
 class InfoContext {
@@ -71,22 +77,42 @@ class InfoContext {
     this.data = data;
     this.element = element;
   }
-  setStrategy() {
-    this.strategy = this.strategy;
+  setStrategy(strategy) {
+    this.strategy = strategy;
   }
   show() {
     this.strategy.show(this.data, this.element);
   }
 }
-
 class ListStrategy {
   show(data, element) {
-    element.innerHtml = data.reduce((ac, item) => {
+    element.innerHTML = data.reduce((ac, item) => {
       return (
         ac +
-        `<div id="content">   <h2>${item.name} </h2> <p>${item.country} </p></div <hr/>`
+        `<div>
+                    <h2>${item.name}</h2> 
+                    <p>${item.country}<p>
+                </div>
+            <hr>`
       );
     }, "");
   }
 }
+class DetailedListStrategy {
+  show(data, element) {
+    element.innerHTML = data.reduce((ac, e) => {
+      return (
+        ac +
+        `<div>
+                    <h2>${e.name}</h2> 
+                    <p>${e.country}<p>
+                    <p>${e.info}</p>
+                </div>
+            <hr>`
+      );
+    }, "");
+  }
+}
+
 const info = new InfoContext(new ListStrategy(), data, content);
+info.show();

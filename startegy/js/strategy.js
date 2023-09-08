@@ -2,6 +2,9 @@ class SaleContext {
   constructor(strategy) {
     this.strategy = strategy;
   }
+  setStrategy(strategy) {
+    this.strategy = strategy;
+  }
   calculate(amount) {
     return this.strategy.calculate(amount);
   }
@@ -25,7 +28,21 @@ class DiscountStrategy {
     return amount + amount * this.tax - this.discount;
   }
 }
+class FoeringSaleStrategy {
+  calculate(amount) {
+    return amount * this.getDollarPrice();
+  }
+  getDollarPrice() {
+    return 20;
+  }
+}
 
 const regularSale = new RegularSaleStrategy(0.16);
+const discountSale = new DiscountStrategy(0.16, 3);
+const foreingSale = new FoeringSaleStrategy();
 const sale = new SaleContext(regularSale);
+console.log(sale.calculate(10));
+sale.setStrategy(discountSale);
+console.log(sale.calculate(10));
+sale.setStrategy(foreingSale);
 console.log(sale.calculate(10));

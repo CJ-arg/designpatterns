@@ -15,3 +15,11 @@ class Subject {
     });
   }
 }
+class Observer {
+  constructor(fn) {
+    this.fn = fn;
+  }
+  refresh(data) {
+    this.fn(data);
+  }
+}

@@ -42,3 +42,4 @@ const o3 = new Observer((d) => {
 s.subscribe(o1);
 s.subscribe(o2);
 s.subscribe(o3);
+// s.unsubscribe(o1);

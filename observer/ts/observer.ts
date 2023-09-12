@@ -1,22 +1,44 @@
-interface IObserver<T>>{
-refresh(value:T) : void;
+interface IObserver<T> {
+  refresh(value: T): void;
 }
 
-interface ISubject<T>{
-observers: IObserver<T>[];
+interface ISubject<T> {
+  observers: IObserver<T>[];
 
-subscribe(observer: IObserver<T>) : void;
-unsubscribe(observer: IObserver<T>) : void;
-notyfy(value: T) : void;
+  subscribe(observer: IObserver<T>): void;
+  unsubscribe(observer: IObserver<T>): void;
+  notify(value: T): void;
 }
 
-class Subject<T> implements ISubject<T>{
-observers: IObserver<T>[];
+class Subject<T> implements ISubject<T> {
+  observers: IObserver<T>[];
 
-constructor(){
-this.observers =[];
+  constructor() {
+    this.observers = [];
+  }
+
+  subscribe(observer: IObserver<T>) {
+    this.observers.push(observer);
+  }
+
+  unsubscribe(observer: IObserver<T>) {
+    this.observers = this.observers.filter((obs) => obs !== observer);
+  }
+
+  notify(value: T) {
+    this.observers.forEach((e) => {
+      e.refresh(value);
+    });
+  }
 }
-subscribe(observer: IObserver<T>) {
-    this.observers.push(observer)
-}
+class Observer<T> implements IObserver<T> {
+  private fn: (value: T) => void;
+
+  constructor(fn: (value: T) => void) {
+    this.fn = fn;
+  }
+
+  refresh(value: T) {
+    this.fn(value);
+  }
 }

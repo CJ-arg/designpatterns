@@ -42,3 +42,28 @@ class Observer<T> implements IObserver<T> {
     this.fn(value);
   }
 }
+const subject = new Subject<number>();
+const obs1 = new Observer<number>((n) => {
+  console.log(`hi ${n}`);
+});
+const obs2 = new Observer<number>((n) => {
+  console.log(`Hello ${n}`);
+});
+
+subject.subscribe(obs1);
+subject.subscribe(obs2);
+subject.notify(1.2);
+subject.notify(30);
+
+const subjectString = new Subject<string>();
+const obs1String = new Observer<string>((n) => {
+  console.log(`${n.toUpperCase()}`);
+});
+const obs2String = new Observer<string>((n) => {
+  console.log(`${n.toLocaleLowerCase()}`);
+});
+
+subjectString.subscribe(obs1String);
+subjectString.subscribe(obs2String);
+subjectString.notify("Héctor");
+subjectString.notify("Juan");

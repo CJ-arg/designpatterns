@@ -8,3 +8,12 @@ class ClientComponent {
     return data;
   }
 }
+// decorator
+class ClientDecorator {
+  constructor(clientComponent) {
+    this.clientComponent = clientComponent;
+  }
+  async getData() {
+    return await this.clientComponent.getData();
+  }
+}

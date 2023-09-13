@@ -12,7 +12,6 @@ class ProductComponent implements Component {
     return `${this.name}`;
   }
 }
-
 // decorator
 abstract class ProductDecorator implements Component {
   protected component: Component;
@@ -23,7 +22,6 @@ abstract class ProductDecorator implements Component {
     return this.component.getDetail();
   }
 }
-
 // decorator 1
 class CommercialInfoProductDecorator extends ProductDecorator {
   private tradename: string;
@@ -37,7 +35,6 @@ class CommercialInfoProductDecorator extends ProductDecorator {
     return `${this.tradename} ${this.brand} ` + super.getDetail();
   }
 }
-
 // decorator 2
 class StoreProductDecorator extends ProductDecorator {
   private price: number;
@@ -49,7 +46,6 @@ class StoreProductDecorator extends ProductDecorator {
     return super.getDetail() + ` $ ${this.price}`;
   }
 }
-
 // decorator 3
 class HTMLProductDecorator extends ProductDecorator {
   getDetail(): string {
@@ -59,7 +55,6 @@ class HTMLProductDecorator extends ProductDecorator {
                 </p>`;
   }
 }
-
 // Ejecución
 // component
 const productComponent = new ProductComponent("Cerveza");

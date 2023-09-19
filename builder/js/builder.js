@@ -11,7 +11,7 @@ class Person {
     return this.name + " " + this.lastName;
   }
 }
-class FormBuilder {
+class PersonBuilder {
   constructor() {
     this.reset();
   }
@@ -61,5 +61,30 @@ class FormBuilder {
       this.city,
       this.hobbies
     );
+    this.reset();
+    return person;
   }
 }
+
+const personBuilder = new PersonBuilder();
+const pedro = personBuilder
+  .setName("Pedro")
+  .setLastName("Pica")
+  .addHobby("caminar")
+  .addHobby("correr")
+  .build();
+
+console.log(pedro);
+
+const juan = personBuilder
+  .setName("Juan")
+  .setName("Juan")
+  .setLastName("Pérez")
+  .setAge(20)
+  .addHobby("Comer")
+  .setCountry("México")
+  .setCity("Guadalajara")
+  .addHobby("Cerveza")
+  .build();
+
+console.log(juan);

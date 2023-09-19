@@ -118,14 +118,15 @@ class FormDirector {
 }
 
 // builder 1
-// const frmBuilder = new FormBuilder();
-// const formPeople = frmBuilder.setAction("add.php")
-//                              .setText("firstName", "Nombre")
-//                              .setText("lastName", "Apellidos")
-//                              .setCheckBox("drinker", "Es bebedor?")
-//                              .setColor("favoriteColor", "Color favorito")
-//                              .build();
-// form1.innerHTML = formPeople.getContent();
+const frmBuilder = new FormBuilder();
+const formPeople = frmBuilder
+  .setAction("add.php")
+  .setText("firstName", "Nombre")
+  .setText("lastName", "Apellidos")
+  .setCheckBox("drinker", "Es bebedor?")
+  .setColor("favoriteColor", "Color favorito")
+  .build();
+form1.innerHTML = formPeople.getContent();
 // builder 2
 const formMail = frmBuilder
   .setAction("send.php")

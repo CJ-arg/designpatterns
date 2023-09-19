@@ -65,6 +65,7 @@ const commercialInfoProduct = new CommercialInfoProductDecorator(
   "London Porter",
   "Fuller's"
 );
+
 console.log(commercialInfoProduct.getDetail());
 // decorator 2 con component
 const storeProduct = new StoreProductDecorator(productComponent, 15.5);

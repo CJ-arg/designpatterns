@@ -28,4 +28,28 @@ class FormBuilder {
     this.name = name;
     return this;
   }
+
+  setLastName(lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  setAge(age) {
+    this.age = age;
+    return this;
+  }
+
+  setCountry(country) {
+    this.country = country;
+    return this;
+  }
+  setCity(city) {
+    this.city = city;
+    return this;
+  }
+
+  addHobby(hobby) {
+    this.hobbies.push(hobby);
+    return this;
+  }
 }

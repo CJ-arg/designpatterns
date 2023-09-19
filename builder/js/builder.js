@@ -52,4 +52,14 @@ class FormBuilder {
     this.hobbies.push(hobby);
     return this;
   }
+  build() {
+    const person = new Person(
+      this.name,
+      this.lastName,
+      this.age,
+      this.country,
+      this.city,
+      this.hobbies
+    );
+  }
 }

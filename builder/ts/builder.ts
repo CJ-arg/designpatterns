@@ -112,15 +112,12 @@ class NormalPersonBuilder implements PersonBuilder {
 // director
 class PersonDirector {
   private personBuilder: PersonBuilder;
-
   constructor(personBuilder: PersonBuilder) {
     this.personBuilder = personBuilder;
   }
-
   setPersonBuilder(personBuilder: PersonBuilder) {
     this.personBuilder = personBuilder;
   }
-
   createSimplePerson(name: string, lastName: string) {
     this.personBuilder.setName(name).setLastName(lastName);
   }
@@ -129,7 +126,6 @@ class PersonDirector {
 // creación 1
 
 const personBuilder = new NormalPersonBuilder();
-
 const hector = personBuilder
   .setName("Héctor")
   .setLastName("De León")
@@ -137,7 +133,6 @@ const hector = personBuilder
   .addHobby("Dormir")
   .build();
 console.log(hector);
-
 // creación 2
 const juan = personBuilder
   .setName("Juan")
@@ -149,10 +144,8 @@ const juan = personBuilder
   .addHobby("Cerveza")
   .build();
 console.log(juan);
-
 // creación con director
 const director = new PersonDirector(personBuilder);
 director.createSimplePerson("John", "Cena");
 const johnCena = personBuilder.build();
-
 console.log(johnCena);

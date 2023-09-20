@@ -30,23 +30,19 @@ class Form {
         />`;
   }
 }
-
 // ConcreteBuilder
 class FormBuilder {
   constructor() {
     this.reset();
   }
-
   reset() {
     this.action = "";
     this.controls = [];
   }
-
   setAction(action) {
     this.action = action;
     return this;
   }
-
   setText(name, text) {
     this.controls.push({
       name: name,
@@ -73,7 +69,6 @@ class FormBuilder {
     });
     return this;
   }
-
   setColor(name, text) {
     this.controls.push({
       name: name,
@@ -89,7 +84,6 @@ class FormBuilder {
     return frm;
   }
 }
-
 // Director
 class FormDirector {
   constructor(formBuilder) {

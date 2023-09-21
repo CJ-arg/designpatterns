@@ -75,12 +75,10 @@ class NormalPersonBuilder implements PersonBuilder {
     this.lastName = lastName;
     return this;
   }
-
   setAge(age: number): PersonBuilder {
     this.age = age;
     return this;
   }
-
   setCountry(country: string): PersonBuilder {
     this.country = country;
     return this;
@@ -89,12 +87,10 @@ class NormalPersonBuilder implements PersonBuilder {
     this.city = city;
     return this;
   }
-
   addHobby(hobby: string): PersonBuilder {
     this.hobbies.push(hobby);
     return this;
   }
-
   build(): Person {
     const person = new Person(
       this.name,
